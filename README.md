@@ -43,12 +43,22 @@ aster.src('src/**/*.js')
 
 ## API
 
-### squery(options)
+### equery(mappings)
 
-#### options.stringOption
+#### mappings
+Type: `{pattern: handler}`
+
+Replacement mappings.
+
+##### pattern
 Type: `String`
 
-Some string option.
+[CSS-style node selector](http://graspjs.com/docs/squery/).
+
+##### handler
+Type: `Function(node)`
+
+Callback to be called on each found match. It will receive matched node object as argument.
 
 ## License
 
