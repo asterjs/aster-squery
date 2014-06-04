@@ -43,7 +43,7 @@ aster.src('src/**/*.js')
 
 ## API
 
-### equery(mappings)
+### squery(mappings)
 
 #### mappings
 Type: `{pattern: handler}`
