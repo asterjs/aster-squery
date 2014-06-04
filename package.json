@@ -1,0 +1,35 @@
+{
+  "name": "aster-squery",
+  "version": "0.0.1",
+  "description": "Replace nodes with CSS-like selectors in aster.",
+  "author": "Ingvar Stepanyan <me@rreverser.com> (https://github.com/RReverser)",
+  "repository": "asterjs/aster-squery",
+  "license": "MIT",
+  "keywords": [
+    "aster-plugin",
+    "ast",
+    "query",
+    "css",
+    "selectors",
+    "javascript",
+    "transform",
+    "modify",
+    "replace"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "es6-map": "^0.1.0",
+    "estraverse": "^1.5.0",
+    "grasp-squery": "^0.2.2",
+    "rx": "^2.2.0"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "escodegen": "^1.3.3",
+    "esprima": "^1.2.2",
+    "mocha": "*"
+  }
+}
