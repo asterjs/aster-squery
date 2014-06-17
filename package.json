@@ -1,6 +1,6 @@
 {
   "name": "aster-squery",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Replace nodes with CSS-like selectors in aster.",
   "author": "Ingvar Stepanyan <me@rreverser.com> (https://github.com/RReverser)",
   "repository": "asterjs/aster-squery",
@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "es6-map": "^0.1.0",
+    "estemplate": "^0.1.1",
     "estraverse": "^1.5.0",
     "grasp-squery": "^0.2.2",
     "rx": "^2.2.0"

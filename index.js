@@ -4,12 +4,36 @@ var Rx = require('rx');
 var squery = require('grasp-squery');
 var Map = require('es6-map');
 var traverse = require('estraverse').replace;
+var estemplate = require('estemplate');
 
 module.exports = function (options) {
 	var replaces = Rx.Observable.fromArray(Object.keys(options)).map(function (selector) {
+		var handler = options[selector];
+
+		if (typeof handler === 'string') {
+			var canBeExprStmt = handler.slice(-1) === ';';
+			var tmpl = estemplate.compile(handler, {tolerant: true});
+
+			handler = function (node) {
+				var ast = tmpl(node);
+
+				if (ast.body.length === 1) {
+					return ast.body[0];
+
+					if (ast.type === 'ExpressionStatement' && !canBeExprStmt) {
+						ast = ast.expression;
+					}
+				} else {
+					ast.type = 'BlockStatement';
+				}
+
+				return ast;
+			};
+		}
+
 		return {
 			selector: squery.parse(selector),
-			handler: options[selector]
+			handler: handler
 		};
 	});
 
