@@ -29,9 +29,9 @@ aster.src('src/**/*.js')
         type: 'ReturnStatement',
         argument: {
             type: 'ConditionalExpression',
-            test: node.cond,
-            consequent: node.expr1,
-            alternate: node.expr2
+            test: node.test,
+            consequent: node.consequent.argument,
+            alternate: node.alternate.argument
         }
     };
   }
