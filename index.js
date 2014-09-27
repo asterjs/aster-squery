@@ -17,14 +17,22 @@ module.exports = function (options) {
 			handler = function (node) {
 				var ast = tmpl(node);
 
-				if (ast.body.length === 1) {
-					return ast.body[0];
+				switch (ast.body.length) {
+					case 0:
+						ast = null;
+						break;
 
-					if (ast.type === 'ExpressionStatement' && !canBeExprStmt) {
-						ast = ast.expression;
-					}
-				} else {
-					ast.type = 'BlockStatement';
+					case 1:
+						ast = ast.body[0];
+
+						if (ast.type === 'ExpressionStatement' && !canBeExprStmt) {
+							ast = ast.expression;
+						}
+
+						break;
+
+					default:
+						ast.type = 'BlockStatement';
 				}
 
 				return ast;
